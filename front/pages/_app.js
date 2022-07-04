@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import 'antd/dist/antd.css';
 
-const App = ({ Component }) => {
+import wrapper from '../store/configureStore';
+
+const NodeBird = ({ Component }) => {
     return (
         <>
             <Head>
@@ -15,7 +17,7 @@ const App = ({ Component }) => {
     )
 };
 
-App.propTypes = {
+NodeBird.propTypes = {
     Component: PropTypes.elementType.isRequired,
 }
-export default App;
+export default wrapper.withRedux(NodeBird);
